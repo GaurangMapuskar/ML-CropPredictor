@@ -57,17 +57,17 @@ layout = [[sg.Text('                      Crop Recommendation Assistant', font=(
 window = sg.Window('Crop Recommendation Assistant', layout) 
 
 while True: 
-	event, values = window.read()
+	event,values = window.read()
 	if event == sg.WINDOW_CLOSED or event == 'Quit':                                                                                            # If the user will press the quit button then the program will end up.
 		break
 	print(values[0])
-	nitrogen_content =         values[0]                                                                                                        # Taking input from the user about nitrogen content in the soil.
-	phosphorus_content =       values[1]                                                                                                        # Taking input from the user about phosphorus content in the soil.
-	potassium_content =        values[2]                                                                                                        # Taking input from the user about potassium content in the soil.
-	temperature_content =      values[3]                                                                                                        # Taking input from the user about the surrounding temperature.
-	humidity_content =         values[4]                                                                                                        # Taking input from the user about the surrounding humidity. 
-	ph_content =               values[5]                                                                                                        # Taking input from the user about the ph level of the soil.
-	rainfall =                 values[6]                                                                                                        # Taking input from the user about the rainfall.
+	nitrogen_content =         int(values[0])                                                                                                        # Taking input from the user about nitrogen content in the soil.
+	phosphorus_content =       int(values[1])                                                                                                        # Taking input from the user about phosphorus content in the soil.
+	potassium_content =        int(values[2])                                                                                                        # Taking input from the user about potassium content in the soil.
+	temperature_content =      int(values[3])                                                                                                        # Taking input from the user about the surrounding temperature.
+	humidity_content =         int(values[4])                                                                                                        # Taking input from the user about the surrounding humidity. 
+	ph_content =               int(values[5])                                                                                                        # Taking input from the user about the ph level of the soil.
+	rainfall =                 int(values[6])                                                                                                        # Taking input from the user about the rainfall.
 	predict1 = np.array([nitrogen_content,phosphorus_content, potassium_content, temperature_content, humidity_content, ph_content, rainfall])  # Converting all the data that we collected from the user into a array form to make further predictions.
 	print(predict1)                                                                                                                             # Printing the data after being converted into a array form.
 	predict1 = predict1.reshape(1,-1)                                                                              # Reshaping the input data so that it can be applied in the model for getting accurate results.
